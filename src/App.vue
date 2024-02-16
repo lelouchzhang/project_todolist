@@ -2,7 +2,7 @@
   <div id="root">
     <div class="todo-container">
       <div class="todo-wrap">
-        <TopTop :getNewTodo="getNewTodo" />
+        <TopTop @getNewTodo="getNewTodo" />
         <ItemsItems
           :todos="todos"
           :updateTodo="updateTodo"
@@ -10,8 +10,8 @@
         />
         <BottomBottom
           :todos="todos"
-          :checkAllTodo="checkAllTodo"
-          :deleteTodos="deleteTodos"
+          @checkAllTodo="checkAllTodo"
+          @deleteTodos="deleteTodos"
         />
       </div>
     </div>

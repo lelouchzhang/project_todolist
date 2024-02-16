@@ -37,14 +37,14 @@ export default {
         return this.Done === this.total && this.total > 0
       },
       set(status) {
-        this.checkAllTodo(status)
-        console.log(status)
+        this.$emit('checkAllTodo', status)
+        // this.checkAllTodo(status)
       },
     },
   },
   methods: {
     clearDone() {
-      if (confirm('确定删除吗?')) this.deleteTodos()
+      if (confirm('确定删除吗?')) this.$emit('deleteTodos')
     },
   },
 }

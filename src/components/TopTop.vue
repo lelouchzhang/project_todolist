@@ -26,11 +26,10 @@ export default {
         name: this.title,
         isDone: false,
       }
-      this.getNewTodo(todo)
+      this.$emit('getNewTodo', todo)
       this.title = ''
     },
   },
-  props: ['getNewTodo'],
 }
 </script>
 
