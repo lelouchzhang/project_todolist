@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     clearDone() {
-      this.deleteTodos()
+      if (confirm('确定删除吗?')) this.deleteTodos()
     },
   },
 }

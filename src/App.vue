@@ -27,8 +27,18 @@ export default {
   name: 'App',
   data() {
     return {
-      todos: [],
+      todos:
+        //* 如果local本地没有获取到数据，则值为null
+        JSON.parse(localStorage.getItem('todos')) || [],
     }
+  },
+  watch: {
+    todos: {
+      deep: true,
+      handler(value) {
+        localStorage.setItem('todos', JSON.stringify(value))
+      },
+    },
   },
   components: { TopTop, ItemsItems, BottomBottom },
   methods: {
