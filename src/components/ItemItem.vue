@@ -20,16 +20,18 @@
 <script>
 export default {
   name: 'ItemItem',
-  props: ['todo', 'updateTodo', 'deleteTodo'],
+  props: ['todo'],
   methods: {
     toggleChecked(id) {
       //通知app，将isdone取反
-      this.updateTodo(id)
+      // this.updateTodo(id)
+      this.$bus.$emit('updateTodo', id)
     },
     removeBtn(id) {
       //删除选定todo
       if (confirm('确定删除吗?')) {
-        this.deleteTodo(id)
+        //this.deleteTodo(id)
+        this.$bus.$emit('deleteTodo', id)
       }
     },
   },

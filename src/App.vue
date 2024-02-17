@@ -3,11 +3,7 @@
     <div class="todo-container">
       <div class="todo-wrap">
         <TopTop @getNewTodo="getNewTodo" />
-        <ItemsItems
-          :todos="todos"
-          :updateTodo="updateTodo"
-          :deleteTodo="deleteTodo"
-        />
+        <ItemsItems :todos="todos" />
         <BottomBottom
           :todos="todos"
           @checkAllTodo="checkAllTodo"
@@ -75,6 +71,10 @@ export default {
         todo.isDone = done
       })
     },
+  },
+  mounted() {
+    this.$bus.$on('updateTodo', this.updateTodo)
+    this.$bus.$on('deleteTodo', this.deleteTodo)
   },
 }
 </script>
