@@ -76,6 +76,10 @@ export default {
     this.$bus.$on('updateTodo', this.updateTodo)
     this.$bus.$on('deleteTodo', this.deleteTodo)
   },
+  beforeDestory() {
+    this.$bus.$off('updateTodo', this.updateTodo)
+    this.$bus.$off('deleteTodo', this.deleteTodo)
+  },
 }
 </script>
 
