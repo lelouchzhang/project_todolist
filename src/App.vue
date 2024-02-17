@@ -64,6 +64,13 @@ export default {
         }
       })
     },
+    updateName(id, name) {
+      this.todos.forEach((todo) => {
+        if (todo.id === id) {
+          todo.name = name
+        }
+      })
+    },
     //全选todo
     checkAllTodo(done) {
       //遍历每一个小框，将小框的true或false和全选框的选择状态同步
@@ -75,10 +82,12 @@ export default {
   mounted() {
     this.$bus.$on('updateTodo', this.updateTodo)
     this.$bus.$on('deleteTodo', this.deleteTodo)
+    this.$bus.$on('updateName', this.updateName)
   },
   beforeDestory() {
     this.$bus.$off('updateTodo', this.updateTodo)
     this.$bus.$off('deleteTodo', this.deleteTodo)
+    this.$bus.$off('updateName', this.updateName)
   },
 }
 </script>
@@ -106,6 +115,12 @@ body {
   color: #fff;
   background-color: #da4f49;
   border: 1px solid #bd362f;
+}
+.btn-edit {
+  color: #fff;
+  background-color: #5579f1;
+  border: 1px solid #496bda;
+  margin-right: 5px;
 }
 
 .btn-danger:hover {
