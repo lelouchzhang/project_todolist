@@ -53,10 +53,10 @@ export default {
       }
       //editBtn自动给焦点
       //- 逻辑做成宏任务
-      //setTimeout(() => this.$refs.editName.focus(), 0)
+      // setTimeout(() => this.$refs.editName.focus(), 0)
       //- $nextTick(function(){})回调函数会在"下一次dom节点更新后"执行
-      //!当数据改变后,要基于更新后的dom进行某些操作时,把操作包进nextTick.
-      this.$nextTick(function () {
+      //!当数据改变后,要基于更新后的dom进行某些操作时,把操作包进nextTick.      this.$nextTick(function () {
+      this.$nextTick(() => {
         this.$refs.editName.focus()
       })
     },
